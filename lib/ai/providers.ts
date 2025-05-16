@@ -53,7 +53,7 @@ export const myProvider = isTestEnvironment
         'chat-model': openai('gpt-4.1-mini'),
         'chat-model-reasoning': wrapLanguageModel({
           model: deepseek('deepseek-chat'),
-          middleware: extractReasoningMiddleware({ tagName: 'reasoning_content' }),
+          middleware: extractReasoningMiddleware({ tagName: 'reasoning' }),
         }),
         'title-model': openai('gpt-4.1-mini'),
         'artifact-model': openai('gpt-4.1-mini'),
