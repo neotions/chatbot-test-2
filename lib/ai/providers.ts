@@ -4,6 +4,7 @@ import {
   wrapLanguageModel,
 } from 'ai';
 import { xai } from '@ai-sdk/xai';
+import { deepseek } from '@ai-sdk/deepseek';
 import { openai } from '@ai-sdk/openai';
 import { isTestEnvironment } from '../constants';
 import {
@@ -51,8 +52,8 @@ export const myProvider = isTestEnvironment
       languageModels: {
         'chat-model': openai('gpt-4.1-mini'),
         'chat-model-reasoning': wrapLanguageModel({
-          model: openai('grok-3-mini-beta'),
-          middleware: extractReasoningMiddleware({ tagName: 'think' }),
+          model: deepseek('deepseek-chat'),
+          middleware: extractReasoningMiddleware({ tagName: 'reasoning_content' }),
         }),
         'title-model': openai('gpt-4.1-mini'),
         'artifact-model': openai('gpt-4.1-mini'),

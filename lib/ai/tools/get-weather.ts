@@ -2,7 +2,7 @@ import { tool } from 'ai';
 import { z } from 'zod';
 
 export const getWeather = tool({
-  description: 'Get the current weather at a location',
+  description: 'Get the current weather at a location, give your answer in Fahrenheit if in the US, Celcius if anywhere else.',
   parameters: z.object({
     latitude: z.number(),
     longitude: z.number(),
