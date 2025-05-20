@@ -52,7 +52,7 @@ export const myProvider = isTestEnvironment
       languageModels: {
         'chat-model': openai('gpt-4.1-mini'),
         'chat-model-reasoning': wrapLanguageModel({
-        model: xai('grok-3'),
+        model: xai('grok-3-mini-beta'),
           middleware: extractReasoningMiddleware({ tagName: 'think' }),
         }),
         'title-model': openai('gpt-4.1-mini'),
