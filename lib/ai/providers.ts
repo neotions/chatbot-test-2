@@ -52,8 +52,8 @@ export const myProvider = isTestEnvironment
       languageModels: {
         'chat-model': openai('gpt-4.1-mini'),
         'chat-model-reasoning': wrapLanguageModel({
-          model: deepseek('deepseek-chat'),
-          middleware: extractReasoningMiddleware({ tagName: 'reasoning' }),
+        model: xai('grok-3'),
+          middleware: extractReasoningMiddleware({ tagName: 'think' }),
         }),
         'title-model': openai('gpt-4.1-mini'),
         'artifact-model': openai('gpt-4.1-mini'),
