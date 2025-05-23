@@ -16,12 +16,19 @@ function generateBarChartData(title: string) {
   return { labels, data, title };
 }
 
+export interface BarChartData {
+    labels: string[];
+    data: number[];
+    title?: string;
+}
+
 export const barChartDocumentHandler = createDocumentHandler<"Bar Chart">({
   kind: "Bar Chart",
   // Called when the document is first created.
   onCreateDocument: async ({ title, dataStream }) => {
     // Generate chart data
     const chartData = generateBarChartData(title);
+
     // Stream the chart data as a single delta
     dataStream.writeData({
       type: "bar-chart-delta",

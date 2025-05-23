@@ -49,13 +49,14 @@ export const myProvider = isTestEnvironment
       },
     })
   : customProvider({
-      languageModels: {
-        'chat-model': openai('gpt-4.1-mini'),
-        'chat-model-reasoning': wrapLanguageModel({
-        model: xai('grok-3-mini-beta'),
-          middleware: extractReasoningMiddleware({ tagName: 'think' }),
-        }),
-        'title-model': openai('gpt-4.1-mini'),
-        'artifact-model': openai('gpt-4.1-mini'),
+        languageModels: {
+            'chat-model': openai('gpt-4.1-mini'),
+            'chat-model-reasoning': 
+                wrapLanguageModel({
+                    model: xai('grok-3-mini-beta'),
+                    middleware: extractReasoningMiddleware({ tagName: 'think' }),
+            }),
+            'title-model': openai('gpt-4.1-mini'),
+            'artifact-model': openai('gpt-4.1-mini'),
       },
     });
