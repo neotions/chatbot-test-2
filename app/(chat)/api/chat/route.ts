@@ -22,6 +22,8 @@ import { generateTitleFromUserMessage } from '../../actions';
 import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
+import { webSearch } from '@/lib/ai/tools/web-search';
+import { createBarChart } from '@/lib/ai/tools/create-bar-chart';
 import { getWeather } from '@/lib/ai/tools/get-weather';
 import { isProductionEnvironment } from '@/lib/constants';
 import { myProvider } from '@/lib/ai/providers';
@@ -36,10 +38,6 @@ import { after } from 'next/server';
 import type { Chat } from '@/lib/db/schema';
 import { differenceInSeconds } from 'date-fns';
 
-
-// app/(chat)/api/chat/route.ts - Updated sections
-import { createBarChart } from '@/lib/ai/tools/create-bar-chart';
-import { webSearch } from '@/lib/ai/tools/web-search';
 
 export const maxDuration = 60;
 
