@@ -36,6 +36,11 @@ import { after } from 'next/server';
 import type { Chat } from '@/lib/db/schema';
 import { differenceInSeconds } from 'date-fns';
 
+
+// app/(chat)/api/chat/route.ts - Updated sections
+import { createBarChart } from '@/lib/ai/tools/create-bar-chart';
+import { webSearch } from '@/lib/ai/tools/web-search';
+
 export const maxDuration = 60;
 
 let globalStreamContext: ResumableStreamContext | null = null;
@@ -174,6 +179,8 @@ export async function POST(request: Request) {
               session,
               dataStream,
             }),
+            createBarChart: createBarChart({ session, dataStream }),
+            webSearch,
           },
           onFinish: async ({ response }) => {
             if (session.user?.id) {
